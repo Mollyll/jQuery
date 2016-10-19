@@ -1,0 +1,25 @@
+loadClazz([{
+	"classId":2001,
+	"c_name":"三年一班",
+	"number":30,
+	"teacherName":"maria",
+	"master":"terry"
+},{
+	"classId":2002,
+	"c_name":"三年二班",
+	"number":30,
+	"teacherName":"toms",
+	"master":"larry"
+},{
+	"classId":2003,
+	"c_name":"三年三班",
+	"number":30,
+	"teacherName":"jane",
+	"master":"jerry"
+},{
+	"classId":2004,
+	"c_name":"三年四班",
+	"number":30,
+	"teacherName":"bob",
+	"master":"tom"
+}]);

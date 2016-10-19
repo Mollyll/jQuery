@@ -1,0 +1,25 @@
+loadStudent([{
+	"stuId":1001,
+	"name":"terry",
+	"clazzName":"三年一班",
+	"gender":"male",
+	"grade":85
+},{
+	"stuId":1002,
+	"name":"larry",
+	"clazzName":"三年二班",
+	"gender":"female",
+	"grade":95
+},{
+	"stuId":1003,
+	"name":"jerry",
+	"clazzName":"三年三班",
+	"gender":"male",
+	"grade":90
+},{
+	"stuId":1004,
+	"name":"tom",
+	"clazzName":"三年四班",
+	"gender":"male",
+	"grade":85
+}]);

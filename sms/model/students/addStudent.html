@@ -1,0 +1,70 @@
+<style type="text/css">
+	.return{ position:absolute; right:20px; top:10px;}
+</style>
+<script type="text/javascript">
+$(function(){
+	$("form[name='addStuForm']").off("submit");
+	$("form[name='addStuForm']").on("submit",function(event){
+		alert("ok");
+		
+		//event.preventDefault();
+		return false;
+	});
+	var url = "http://172.16.7.143:81/myweb/server/my_sms/model/clazzs/clazzs.js";
+	$.ajax(url,{
+		dataType:"jsonp",
+		jsonp:"jsonp",
+		jsonpCallback:"loadClazz"
+	});
+});
+function loadClazz(data){
+	data.forEach(function(item,index){
+		var newOpt = $("<option value='"+item.clazzId+"'>"+item.c_name+"</option>");
+		$("select[name='clazzId']").append(newOpt);
+	});
+	
+}
+</script>
+<div class="inner">
+	<h3>添加学生</h3>
+	<a href="javascript:void(0)" class="return"><返回></a>
+	<!--form表单不应出现在table之间，而是放在最外面-->
+	<form action="addStudent" name="addStuForm">
+		<table>
+			<tbody>
+				<tr>
+					<td>姓名</td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>班级</td>
+					<td>
+						<select name="clazzId">
+							<option value="">请选择</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td>
+						男<input type="radio" value="male" name="gender" >
+						女<input type="radio" value="female" name="gender" >
+					</td>
+				</tr>
+				<tr>
+					<td>分数</td>
+					<td>
+						<input type="text" name="grade" >
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="保存">
+						<input type="reset" value="重置">
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+	</form>
+</div>

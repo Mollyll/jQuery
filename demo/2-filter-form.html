@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>form</title>
+	<script type="text/javascript" src="js/jquery-2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		h3{ text-align:center}
+		table{ width: 500px; border-collapse: collapse; margin:0 auto; }
+		table th, table td{border: 1px solid #000; text-align:center}
+	</style>
+	<script type="text/javascript" src="../demo/js/ajax.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//var result = $("input:radio").css("background","red");
+			//var $result = $(":input[name='name']").css("background","red");
+			$("form[name='userform']").click(function(event){
+				var obj = {};
+				obj.username = $("input[name='username']").val();
+				obj.name = $("input[name='name']").val();
+				obj.pwd = $("input[name='pwd']").val();
+				var username = "terry,jerry,tom,michacal,kangkang,";
+				var result = username.match(obj.username);
+				if(result==null){
+					alert("username was already used!");
+				}
+				var request = new XMLHttpRequest();
+				request.open("POST","register.action");
+				request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				request.send(encodeFormData(obj));
+				//alert("ready for ajax!");
+				event.preventDefault();
+			});
+		})
+	</script>
+</head>
+<body>
+	<h3>用户信息填写</h3>
+	<form name="userform" method="register.action" action="POST">
+		
+		<table>
+			<tbody>
+				<tr>
+					<th>用户名：</th>
+					<td><input type="text" name="username"></td>
+				</tr>
+				<tr>
+					<th>密码：</th>
+					<td><input type="text" name="pwd"></td>
+				</tr>
+				<tr>
+					<th>姓名：</th>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<th>性别：</th>
+					<td><input type="radio" name="gender" value="male">男<input type="radio" name="gender" value="female">女</td>
+				</tr>
+				<tr>
+					<th>爱好：</th>
+					<td>basketball<input type="checkbox" name="hob" value="basketball">
+					soccer<input type="checkbox" name="hob" value="soccer">
+					swimming<input type="checkbox" name="hob" value="swimming">
+					running<input type="checkbox" name="hob" value="running"></td>
+				</tr>
+				<tr>
+					<th>地址：</th>
+					<td><select name="address">
+						<option value="sh">上海</option>
+						<option value="js">江苏</option>
+					</select></td>
+				</tr>
+				<tr>
+					<th>照片：</th>
+					<td><input type="file" name="photo"></td>
+				</tr>
+				<tr>
+					<th>简介：</th>
+					<td><textarea name="disctiption" cols="30" rows="5">Please enter your basic information!</textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" name="submit" value="submit">
+					<input type="reset" name="reset" value="reset"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</form>
+</body>
+</html>

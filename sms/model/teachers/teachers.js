@@ -1,0 +1,25 @@
+teacherInfo([{
+	"teacherId":1001,
+	"t_name":"maria",
+	"year":"2年",
+	"salary":4500,
+	"degree":"班主任"
+},{
+	"teacherId":1002,
+	"t_name":"bob",
+	"year":"3年",
+	"salary":6000,
+	"degree":"系主任"
+},{
+	"teacherId":1003,
+	"t_name":"jane",
+	"year":"4年",
+	"salary":3500,
+	"degree":"讲师"
+},{
+	"teacherId":1004,
+	"t_name":"toms",
+	"year":"1年",
+	"salary":2500,
+	"degree":"实习生"
+},]);

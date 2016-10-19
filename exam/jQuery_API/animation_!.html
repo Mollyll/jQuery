@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>animation_1</title>
+	<style type="text/css">
+		.content{ width: 100px; height: 100px; background-color: lightblue; position: relative; float: left; margin: 10px; }
+	</style>
+	<script type="text/javascript" src="..//theme/1/js/jquery-2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button:eq(0)").click(function(){
+				$(".content").hide("slow");
+			});
+			$("button:eq(1)").click(function(){
+				$(".content").show("slow",function(){
+					$(this).css("background-color","red");
+				});
+			});
+			$("button:eq(2)").click(function(){
+				$(".content").toggle(1000);
+			});
+			$("button:eq(3)").click(function(){
+				$(".content").fadeOut(1000);
+			});
+			$("button:eq(4)").click(function(){
+				$(".content").fadeIn(1000);
+			});
+			$("button:eq(5)").click(function(){
+				$(".content").fadeToggle(1000);
+			});
+			$("button:eq(6)").click(function(){
+				$(".content").fadeTo(1000,0.5);
+			});
+			$("button:eq(7)").click(function(){
+				$(".content").stop().slideUp(1000);
+			});
+			$("button:eq(8)").click(function(){
+				$(".content").stop().slideDown(1000);
+			});
+			$("button:eq(9)").click(function(){
+				$(".content").stop().slideToggle(1000);
+			});
+			$("button:eq(10)").click(function(){
+				$(".content").animate({
+					left:"+=500",
+					opacity:0.25
+				},3000);
+				$(".content").animate({
+					left:"-=500",
+					opacity:1
+				},3000,function(){
+					$(".content").css("background-color","red");
+				});
+			});
+			$("button:eq(11)").click(function(){
+				$(".content").finish();
+			});
+			$("button:eq(12)").click(function(){
+				var result = $(".content").queue("fx");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+	<button>隐藏</button>
+	<button>显示</button>
+	<button>切换</button>
+	<button>淡出</button>
+	<button>淡入</button>
+	<button>切换</button>
+	<button>淡到</button><br>
+	<button>滑出</button>
+	<button>滑入</button>
+	<button>切换</button>
+	<button>自定义动画</button>
+	<button>停止</button>
+	<button>队列</button>
+	<button>延迟</button>
+	</div>
+	<div class="content"></div>
+	<div class="content"></div>
+	<div class="content"></div>
+</body>
+</html>

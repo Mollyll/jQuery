@@ -1,0 +1,75 @@
+<style type="text/css">
+	table th{ background-color:#f00;}
+</style>
+<script type="text/javascript">
+$(function(){
+	var url = "http://172.16.7.143:81/myweb/server/my_sms/model/students/student.js";
+	$.ajax(url,{
+		dataType:"jsonp",
+		jsonp:"jsonp",
+		jsonpCallback:"loadStudent"
+	});
+	$("button").click(function(){
+		var opt = $(this).text();
+		switch(opt){
+			case "添加":
+				$(".tab_content").load("model/students/addStudent.html");
+				break;
+			case "删除":
+				break;
+		}
+	});
+});
+function loadStudent(data){
+	data.forEach(function(item){
+		var newTr = $(".hiddenTr").clone(true).removeClass("hiddenTr");
+		newTr.find(":checkbox").val(item.stuId);
+		newTr.children().eq(1).text(item.name);
+		newTr.children().eq(2).text(item.clazzName);
+		newTr.children().eq(3).text(item.gender);
+		newTr.children().eq(4).text(item.grade);
+		$("tbody").append(newTr);
+	});
+}
+</script>
+<!--学生管理-->
+			<div class="inner">
+				<div class="search">
+					<select name="search_key">
+						<option value="name">姓名</option>
+						<option value="clazz">班级</option>
+						<option value="grade">成绩</option>
+					</select>
+					<input type="text" name="search_val">
+					<input type="submit" value="search">
+				</div>
+				<table id="stu_tab">
+					<thead>
+						<tr>
+							<th>选择</th>
+							<th>姓名</th>
+							<th>班级</th>
+							<th>性别</th>
+							<th>考试</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="hiddenTr">
+							<td>
+				<input type="checkbox">
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="opt_btns">
+					<input type="checkbox">
+					<button>添加</button>
+					<button>修改</button>
+					<button>删除</button>
+					<button>刷新</button>
+				</div>
+			</div>
